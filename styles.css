@@ -55,7 +55,7 @@ body {
   display: flex;
 }
 
-SIDEBAR .sidebar {
+.sidebar {
   width: var(--sidebar);
   min-width: var(--sidebar);
   background: var(--sidebar-bg);
