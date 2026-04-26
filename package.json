@@ -1,0 +1,29 @@
+{
+  "name": "pos-tienda-barrio",
+  "version": "1.0.0",
+  "description": "Sistema POS para tiendas de barrio",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.mitienda.pos",
+    "productName": "MiTienda POS",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "dependencies": {
+    "sql.js": "^1.10.3"
+  }
+}
