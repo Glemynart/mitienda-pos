@@ -80,7 +80,6 @@ class DB {
       );
     `);
 
-    // Migrar: agregar columna metodo_pago si no existe (para DBs antiguas)
     try {
       this.db.run("ALTER TABLE ventas ADD COLUMN metodo_pago TEXT NOT NULL DEFAULT 'Efectivo'");
       this.save();
