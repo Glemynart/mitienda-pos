@@ -1087,7 +1087,6 @@ function openOverlay(id) { document.getElementById(id).classList.add('open'); }
 function closeOverlay(id) { document.getElementById(id).classList.remove('open'); }
 function overlayClose(e, id) { if (e.target.id === id) closeOverlay(id); }
 
-// Escape cierra modales
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeOverlay('modal-prod'); closeOverlay('modal-ticket'); }
 });
