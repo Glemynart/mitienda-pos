@@ -300,7 +300,6 @@ class DB {
       ORDER BY fecha DESC LIMIT 8
     `, [hoy]);
 
-    // Productos vendidos hoy
     const pvRow = this._get(`
       SELECT COALESCE(SUM(d.cantidad),0) as total
       FROM detalle_venta d JOIN ventas v ON v.id = d.venta_id WHERE date(v.fecha) = ?
