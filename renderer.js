@@ -1,6 +1,5 @@
 'use strict';
 
-// ── Estado global ───────────────────────────────────────
 let allProductos = [];
 let carrito = [];
 let currentCat = 'Todos';
@@ -10,7 +9,6 @@ let lastTicketData = null;
 let dashData = null;
 let config = {};
 
-// ── Init ────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
   setDateLabels();
   config = await window.api.config.get();
@@ -21,7 +19,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   goTo('venta');
 });
 
-// ── Fecha ────────────────────────────────────────────────
 function setDateLabels() {
   const now = new Date();
   const opts = { weekday: 'short', day: 'numeric', month: 'short' };
@@ -32,12 +29,10 @@ function setDateLabels() {
   if (d2) d2.textContent = now.toLocaleDateString('es-CO',
     { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
-  // fecha actual por defecto en historial
   const hf = document.getElementById('hist-fecha');
   if (hf) hf.value = now.toISOString().split('T')[0];
 }
 
-// ── Aplicar configuración UI ─────────────────────────────
 function applyConfig() {
   const nombre = config.nombre_tienda || 'MiTienda';
   const initials = nombre.trim().charAt(0).toUpperCase();
@@ -64,8 +59,6 @@ function applyConfig() {
     const el = document.getElementById(id);
     if (el) el.value = val;
   }
-
-  // Toggle Factus
   const factusToggle = document.getElementById('cfg-factus-activo');
   const factusFields = document.getElementById('factus-fields');
   if (factusToggle) {
@@ -134,7 +127,6 @@ function renderGrid() {
   `).join('');
 }
 
-// ─── Escáner de código de barras ─────────────────────────
 function onBarcodeKey(e) {
   if (e.key === 'Enter') {
     const query = document.getElementById('buscar').value.trim();
